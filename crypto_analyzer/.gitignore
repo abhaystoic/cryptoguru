@@ -1,4 +1,8 @@
-
+*.pyc
+*.py~
+*.py[co]
+*.egg-info
+*.swp
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
