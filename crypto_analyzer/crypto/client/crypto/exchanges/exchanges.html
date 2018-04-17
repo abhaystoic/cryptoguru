@@ -1,0 +1,69 @@
+<div class="content coins-container">
+	<div class="container-fluid">
+		<div class="row">
+      <br/>
+      <div class="col-lg-12 col-xs-12 col-md-12">
+      	<div class="card card-text">
+      		<div class="header">
+      			<h4 class="title">Exchanges in India</h4>
+      		</div>
+      		<div class="content">
+            <!-- This container has tabular UI. -->
+            <table id="coin_table"
+                   class="table table-striped">
+              <thead>
+                <tr>
+                  <th>S. No.</th>
+                  <th>Name</th>
+                  <th>
+                    <i class="fa fa-circle-o faa-burst animated"></i>
+                    Live Bitcoin Price
+                  </th>
+                  <th>
+                    <i class="fa fa-circle-o faa-burst animated"></i>
+                    Live Fluctuations
+                  </th>
+                  <th>Website</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th></th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr ng-repeat="data in exchangesCtrl.exchangesData">
+                  <td>{{$index + 1}}</td>
+                  <td>
+                    <div class="icon-small icon-danger text-center">
+                      <a ng-href="#">
+                        {{data.name}}
+                      </a>
+                    </div>
+                  </td>
+                  <td ng-class="{'crypto-bg-up': exchangesCtrl.priceDiffMap[data.name] == 1,
+                                 'crypto-bg-down': exchangesCtrl.priceDiffMap[data.name] == -1}">
+                    {{exchangesCtrl.preferredCurrencySymbol}} {{exchangesCtrl.priceMap[data.name] | convertToPreferredCurrency:exchangesCtrl.currencyConversionRate}}
+                  </td>
+                  <td>
+                    <i ng-if="exchangesCtrl.priceDiffMap[data.name] == 1"
+                       class="fa fa-caret-up crypto-bg-up-caret blink">
+                    </i>
+                    <i ng-if="exchangesCtrl.priceDiffMap[data.name] == -1"
+                       class="fa fa-caret-down crypto-bg-down-caret blink">
+                    </i>
+                    <i ng-if="exchangesCtrl.priceDiffMap[data.name] == 0"
+                       class="fa fa-spinner fa-spin">
+                    </i>
+                  </td>
+                  <td><a href="{{data.website}}" target="_blank">{{data.website}}</a></td>
+                </tr>
+              </tbody>
+            </table>
+      		</div>
+      	</div>
+      </div>
+    </div>
+  </div>
+  <crypto-footer></crypto-footer>
+</div>

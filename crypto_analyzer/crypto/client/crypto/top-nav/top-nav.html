@@ -1,0 +1,115 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar bar1"></span>
+                <span class="icon-bar bar2"></span>
+                <span class="icon-bar bar3"></span>
+            </button>
+            <div class="navbar-brand">
+                Crypto Guru
+                <p class="sub-title">Track all cryptocurrencies.</p>
+                <p class="sub-title">
+                  <a class="social-icon"
+                     href="http://facebook.com/cryptogurulive/"
+                     target="_blank">
+                     <i class="ti-facebook"></i>
+                  </a>
+                  <a class="social-icon icon-spacing"
+                     href="http://twitter.com/CryptoGuruLive/"
+                     target="_blank">
+                     <i class="ti-twitter-alt"></i>
+                  </a>
+                  <a class="social-icon icon-spacing"
+                     href="http://instagram.com/cryptogurulive/"
+                     target="_blank">
+                     <i class="ti-instagram"></i>
+                  </a>
+                </p>
+            </div>
+            <!-- <div style="float: right;margin-left:120px;margin-top: 20px;">
+                <crypto-ads></crypto-ads>
+            </div> -->
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" ng-show="$root.userDetails">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{{$root.userDetails.imageUrl}}"
+                             class="user-img" />
+          							<p>{{$root.userDetails.name}}</p>
+          							<b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" data-toggle="modal"
+                               data-target="#squarespaceModal" ng-click="getPreferences()">
+                                <i class="ti-settings"></i>
+                                My settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href ng-click="logout()">
+                                <i class="ti-power-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                      </ul>
+                </li>
+                <li ng-hide="$root.userDetails">
+                    <div class="inner-addon left-addon">
+                        <i class="ti-facebook fb-login-btn icon"></i>
+                        <input type="button" value="Log in With Facebook"
+                               fb-login
+                               class="btn btn-wd fb-login-btn"
+                               ng-click="login()"/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Settings modal -->
+<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h3 class="modal-title" id="lineModalLabel">My settings</h3>
+        </div>
+        <div class="modal-body">
+            <!-- content goes here -->
+            <form>
+              <div id="message-box" class="alert alert-success">
+                <span>{{message}}</span>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Select preferred currency </label>
+                <select class="form-control"
+                        ng-options="currency for currency in currencies"
+                        ng-model="preferredCurrency"
+                        ng-change="changePreferredCurrency()"></select>
+              </div>
+              <div class="form-group" id="status" data-toggle="buttons">
+                <label for="notificationSetting">Display live notifications</label>
+                <div class="form-control btn-group" id="status" data-toggle="buttons">
+                  <!-- <label class="btn btn-default btn-on active"
+                         for="notificationSetting-1"> -->
+                  <input type="radio" ng-value="true" ng-model="notificationSetting"
+                         ng-change="changeNotificationSetting(true)"
+                         id="notificationSetting-1"
+                         name="notificationSetting">ON</label>
+                  <!-- <label class="btn btn-default btn-off"
+                         for="notificationSetting-2"> -->
+                  <input type="radio" ng-value="false" ng-model="notificationSetting"
+                         ng-change="changeNotificationSetting(false)"
+                         id="notificationSetting-2"
+                         name="notificationSetting">OFF</label>
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="sidebar" data-background-color="blue" data-active-color="danger">
+	<div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="/" class="simple-text">
+                <img class="logo-img" src="/static/assets/img/full_logo.png"/>
+            </a>
+        </div>
+        <ul class="nav">
+            <li ng-class="{'active': $root.activeTab == 'dashboard'}">
+                <a href="/">
+                    <i class="ti-pulse"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li ng-class="{'active': $root.activeTab == 'charts'}">
+                <a href="/charts">
+                    <i class="fa fa-line-chart"></i>
+                    <p>Charts</p>
+                </a>
+            </li>
+            <li ng-class="{'active': $root.activeTab == 'exchanges'}">
+                <a href="/exchanges">
+                    <i class="fa fa-handshake-o"></i>
+                    <p>Indian Exchanges</p>
+                </a>
+            </li>
+            <!-- <li ng-class="{'active': $root.activeTab == 'news'}">
+                <a href="/news">
+                    <i class="fa fa-newspaper-o"></i>
+                    <p>News</p>
+                </a>
+            </li> -->
+            <li ng-class="{'active': $root.activeTab == 'contact-us'}">
+                <a href="/contact-us">
+                    <i class="ti-email"></i>
+                    <p>Contact Us</p>
+                </a>
+            </li>
+            <li ng-class="{'active': $root.activeTab == 'faqs'}">
+                <a href="/faqs">
+                    <i class="ti-help"></i>
+                    <p>FAQs</p>
+                </a>
+            </li>
+            <li>
+                <div style="text-align: center;">
+                    <div class="fb-like"
+                         data-layout="standard"
+                         data-action="like"
+                         data-size="small"
+                         data-show-faces="true"
+                         data-share="true"></div>
+                </div>
+            </li>
+        </ul>
+	</div>
+</div>

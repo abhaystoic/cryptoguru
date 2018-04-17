@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112636500-1"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112636500-1');
+      (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=1968330623489604&autoLogAppEvents=1';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static 'assets/img/apple-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/img/favicon.png' %}">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content='Latest and live streaming of prices and other cryptocurrencies, bitcoin and alcoins data of the world. All the relevant data organized amazingly and in the most simplistic manner for the Indian needs in INR.' />
+    <meta name="keywords" content="bitcoin, buy bitcoin, bitcoin bubble, bitcoin future, best cryptocurrency, lakshmicoin, laxmicoin, lakshamicoin, sell bitcoin, buy bitcoin india, sell bitcoin india, bitcoin india, bitcoin inr, btc inr, bitcoin wallet india, store bitcoin india, buy bitcoin inr, sell bitcoin inr, ethereum, send bitcoin india, jiocoin, receive bitcoin india, bitcoin price, btc to inr, btc price in inr, bitcoin exchange, live bitcoin price inr, bitcoin ticker, cryptocurrencies" />
+    <meta name="google-site-verification" content="spZh8anRKhWYhLD5ssGxhpZ6DqQPuWzFydySGnM4m6E" />
+
+	<title>Crypto Guru | Live Bitcoin and Altcoins data</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <!-- <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" /> -->
+
+    <!-- Animation library for notifications   -->
+    <!-- <link href="{% static 'assets/css/animate.min.css' %}" rel="stylesheet"/> -->
+
+    <!--  Paper Dashboard core CSS    -->
+    <!-- <link href="{% static 'assets/css/dashboard.css' %}" rel="stylesheet"/> -->
+
+    <!-- <link href="{% static 'assets/css/crypto-icons.css' %}" rel="stylesheet" /> -->
+    <link href="{% static 'assets/prod/css/app-all.min.css' %}" rel="stylesheet" />
+
+
+    <!--  Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="{% static 'assets/css/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/app.css' %}" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css"> -->
+
+
+</head>
+<body id="main-coins-container">
+  <div id="fb-root"></div>
+  {% block content %}{% endblock content %}
+</body>
+{% block client %}{% endblock client %}
+</html>

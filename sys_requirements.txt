@@ -1,0 +1,11 @@
+sudo apt-get install libmysqlclient-dev
+npm init
+npm install grunt grunt-contrib-concat grunt-contrib-uglify grunt-ng-annotate --save-dev
+
+To compile JS and run project: grunt;python manage.py collectstatic --noinput;python manage.py runserver 8001;
+
+Check data usage because of cron: select table_schema, sum((data_length+index_length)/1024/1024) AS MB from information_schema.tables group by 1;
+
+
+Cron entry:
+* * * * * source ~/.bashrc && source /home/abhay/workspace/venv_crypto/bin/activate && python /home/abhay/workspace/crypto_analysis/crypto_analyzer/manage.py runcrons > /home/abhay/workspace/crypto_analysis/crypto_analyzer/cronjob.log

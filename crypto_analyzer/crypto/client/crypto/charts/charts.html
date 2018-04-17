@@ -1,0 +1,62 @@
+<div class="content coins-container">
+  <div class="container-fluid">
+      <div class="row">
+        <br/>
+        <div class="col-md-12">
+          <div class="card">
+              <div class="panel-group">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <div class="content col-lg-8 col-xs-12 col-sm-12">
+                      <div class="row">
+                        <div class="col-lg-4 col-xs-12 col-sm-12">
+                          <select class="selectpicker" data-show-subtext="true" data-live-search="true"
+                                  ng-model="chartsCtrl.selectedCoin"
+                                  ng-change="chartsCtrl.loadOtherCoin()">
+                            <option data-subtext=""
+                                    value="{{coin.coin_id}}"
+                                    ng-repeat="coin in chartsCtrl.allCoins">{{coin.name}}</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label class="col-lg-2 col-xs-6 col-sm-6">
+                            <input type="radio" ng-model="chartsCtrl.duration" name="duration"
+                                   ng-change="chartsCtrl.changeDuration()" ng-value="120"/> 2 HRS
+                          </label>
+                          <label class="col-lg-2 col-xs-6 col-sm-6 active">
+                            <input type="radio" ng-model="chartsCtrl.duration" name="duration"
+                                   ng-change="chartsCtrl.changeDuration()" ng-value="1440"/> 24 HRS
+                          </label>
+                          <label class="col-lg-2 col-xs-6 col-sm-6">
+                            <input type="radio" ng-model="chartsCtrl.duration" name="duration"
+                                   ng-change="chartsCtrl.changeDuration()" ng-value="10080"/> 7 Days
+                          </label>
+                          <label class="col-lg-2 col-xs-6 col-sm-6">
+                            <input type="radio" ng-model="chartsCtrl.duration" name="duration"
+                                   ng-change="chartsCtrl.changeDuration()" ng-value="43200"/> 1 Month
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="col-lg-12 col-xs-12 col-sm-12" id="chartContainerSmall"
+                         style="min-height: 300px;"
+                         ng-hide="chartsCtrl.loading">
+                    </div>
+                    <div class="col-lg-12 col-xs-12 col-sm-12 text-center"
+                         ng-show="chartsCtrl.loading">
+                      <div class="row">
+                        <i class="fa fa-refresh fa-spin fa-4x fa-fw"></i>
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+  <crypto-footer></crypto-footer>
+</div>

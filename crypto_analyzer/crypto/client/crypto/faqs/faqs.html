@@ -1,0 +1,36 @@
+<div class="content coins-container">
+	<div class="container-fluid">
+		<div class="row">
+      <br/>
+      <div class="col-lg-12 col-xs-12 col-md-7">
+      	<div class="card">
+      		<div class="header">
+      			<h4 class="title">Frequently Asked Questions</h4>
+      		</div>
+      		<div class="content">
+            <div id="accordion" role="tablist">
+              <div class="card card-text" ng-repeat="faqs in faqsCtrl.faqs" >
+                <div class="card-header" role="tab" id="heading{{$index}}">
+                  <h5 class="mb-0">
+                    <button data-toggle="collapse" href="#collapse{{$index}}" role="button"
+                            aria-expanded="true" aria-controls="collapse{{$index}}"
+                            class="accordion-btn">
+                      {{faqs.title}}
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapse{{$index}}" class="collapse {show: $index==0}" role="tabpanel"
+                     aria-labelledby="heading{{$index}}" data-parent="#accordion">
+                  <div class="card-body">
+                    {{faqs.content}}
+                  </div>
+                </div>
+              </div>
+            </div>
+      		</div>
+      	</div>
+      </div>
+    </div>
+  </div>
+  <crypto-footer></crypto-footer>
+</div>

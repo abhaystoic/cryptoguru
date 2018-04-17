@@ -1,0 +1,172 @@
+<div class="content coins-container">
+    <div class="container-fluid">
+        <div class="row">
+            <br/>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="panel-group col-md-10">
+                      <div class="panel">
+                        <div class="panel-heading">
+                          <div class="content">
+                            <div class="row">
+                              <div class="col-lg-2 col-xs-2">
+                                <a href="/" style="padding-left: 10px">
+                                  <button type="button"
+                                          class="btn btn-default pull-left back-btn">
+                                    <span class="ti-arrow-left"></span>
+                                  </button>
+                                </a>
+                              </div>
+                              <div class="col-lg-6 col-xs-7 text-center">
+                                <i class="fa fa-btc icon-big icon-success" ng-if="coinDetailsCtrl.coinID == 'bitcoin'"></i>
+                                <i class="cc {{coinDetailsCtrl.coinSymbol}} icon-big icon-success" ng-if="coinDetailsCtrl.coinID != 'bitcoin'"></i>
+                                {{coinDetailsCtrl.coinID | formatNames}}
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-8 col-xs-10" id="chartContainerSmall" style="width:90%; height:110px;"></div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                          <div class="panel panel-primary">
+                            <div class="panel-heading details-header">
+                              <div class="row">
+                                <div class="col-xs-7" style="font-size: small;">
+                                  LIVE market
+                                  <span style="font-size: xx-small;">
+                                    <i class="fa fa-circle-o faa-burst animated"></i> Realtime
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <div class="col-md-12 text-center"
+                                   ng-if="coinDetailsCtrl.showSpinner">
+                                <div class="row">
+                                  <i class="fa fa-refresh fa-spin fa-4x fa-fw"></i>
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div class="{{coinDetailsCtrl.getCardSize(key)}}"
+                                   ng-repeat="(key, value) in coinDetailsCtrl.coinDetails"
+                                   ng-if="coinDetailsCtrl.ignoreKeys.indexOf(key) == -1">
+                                <div class="card crypto-bg-{{key | upDownOrStable:value}}">
+                                  <div class="content">
+                                    <div class="row">
+                                      <div class="col-xs-2">
+                                        <div class="icon-big icon-warning text-center">
+                                          <i class="{{coinDetailsCtrl.getIcon(key)}}"></i>
+                                        </div>
+                                      </div>
+                                      <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>{{key| formatNames}}</p>
+                                            <!-- <span ng-if="key!='volume'">₹ </span> -->
+                                            {{value}}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel panel-primary">
+                            <div class="panel-heading details-header">
+                              <div class="row">
+                                <div class="col-xs-7" style="font-size: small;">
+                                  Availability
+                                  <span style="font-size: xx-small;">
+                                    <i class="fa fa-circle-o faa-burst animated"></i> Realtime
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <div class="col-md-12 text-center"
+                                   ng-if="coinDetailsCtrl.showSpinner">
+                                <div class="row">
+                                  <i class="fa fa-refresh fa-spin fa-4x fa-fw"></i>
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div class="col-md-10"
+                                   ng-hide="coinDetailsCtrl.showSpinner">
+                                <div class="row">
+                                  <div ng-if="coinDetailsCtrl.availabilityPerc > -1">
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-success progress-bar-striped active"
+                                           role="progressbar"
+                                           aria-valuenow="{{coinDetailsCtrl.coinDetails.available_supply}}"
+                                           aria-valuemin="0"
+                                           aria-valuemax="{{coinDetailsCtrl.coinDetails.max_supply}}"
+                                           style="width:{{100 - coinDetailsCtrl.availabilityPerc}}%;color: #000;height:12px;">
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <p>
+                                        {{coinDetailsCtrl.availableCount}}
+                                        ({{coinDetailsCtrl.availabilityPerc}}%) {{coinDetailsCtrl.coinID | formatNames}} remaining in the world!
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div ng-if="coinDetailsCtrl.availabilityPerc == -1">
+                                    <p>Availability could not be calculated. Check LIVE market for relevant data.</p>
+                                  </div>
+                                  <div ng-if="coinDetailsCtrl.availabilityPerc == 0">
+                                    <p><i class="fa fa-smile-o"></i>Just kidding. We don't have enough data for computing this.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="panel panel-primary" ng-if="coinDetailsCtrl.coinID == 'bitcoin'">
+                            <div class="panel-heading details-header">
+                              <div class="row">
+                                <div class="col-xs-7" style="font-size: small;">
+                                  Zebpay
+                                  <span style="font-size: xx-small;">
+                                    <i class="fa fa-circle-o faa-burst animated"></i> Updated every second
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel-body">
+                              <div class="col-md-12 text-center"
+                                   ng-if="coinDetailsCtrl.showZebpaySpinner">
+                                <div class="row">
+                                  <i class="fa fa-refresh fa-spin fa-4x fa-fw"></i>
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
+                              <div class="col-lg-3 col-sm-6"
+                                   ng-repeat="(key, value) in coinDetailsCtrl.zebpayDetails"
+                                   ng-if="coinDetailsCtrl.ignoreKeys.indexOf(key) == -1">
+                                <div class="card">
+                                  <div class="content">
+                                    <div class="row">
+                                      <div class="col-xs-2">
+                                        <div class="icon-big icon-warning text-center">
+                                            <i class="{{coinDetailsCtrl.getIcon('zebpay_' + key)}}"></i>
+                                        </div>
+                                      </div>
+                                      <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>{{key | formatNames}}</p>
+                                            {{coinDetailsCtrl.getSymbol(key)}} {{value}}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
