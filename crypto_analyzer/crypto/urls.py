@@ -1,5 +1,6 @@
 """"""
 
+from __future__ import absolute_import
 from django.conf.urls import url
 from crypto.views_cluster import capture_user
 from crypto.views_cluster import get_all_coins

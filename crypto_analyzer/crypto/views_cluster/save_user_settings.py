@@ -1,5 +1,7 @@
 """"""
 
+from __future__ import print_function
+
 import json
 import traceback
 
@@ -31,7 +33,7 @@ def saveUserSettings(request):
       server_response_msg = 'Settings saved.'
       server_response_status = 'success'
     except Exception as e:
-      print traceback.print_exc()
+      print(traceback.print_exc())
       server_response_msg = 'Something went wrong! Please try again.'
       server_response_status = 'failure'
   else:

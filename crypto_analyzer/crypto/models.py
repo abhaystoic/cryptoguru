@@ -5,6 +5,7 @@ TODO: Remove 'blank=True, null=True' wherever it doesn't make sense.
 
 from __future__ import unicode_literals
 
+from __future__ import absolute_import
 from django.db import models
 
 MAX_CHAR_LEN = 1024
